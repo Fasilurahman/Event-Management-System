@@ -1,0 +1,68 @@
+import { Container } from 'inversify';
+import { TYPES } from '../constants/types';
+import { IEventRepository } from '../domain/repositories/IEventRepository';
+import { ITicketRepository } from '../domain/repositories/ITicketRepository';
+import { IUserRepository } from '../domain/repositories/IUserRepository';
+import { EventRepository } from '../infrastructure/database/repositories/EventRepository';
+import { TicketRepository } from '../infrastructure/database/repositories/TicketRepository';
+import { UserRepository } from '../infrastructure/database/repositories/UserRepository';
+import { CreateEventUseCase } from '../application/usecases/event/CreateEventUseCase';
+import { GetEventsUseCase } from '../application/usecases/event/GetEventsUseCase';
+import { UpdateEventUseCase } from '../application/usecases/event/UpdateEventUseCase';
+import { DeleteEventUseCase } from '../application/usecases/event/DeleteEventUseCase';
+import { CreateCheckoutSessionUseCase } from '../application/usecases/event/CreateCheckoutSessionUseCase';
+import { HandleStripeWebhookUseCase } from '../application/usecases/event/HandleStripeWebhookUseCase';
+import { GetTicketsByUserUseCase } from '../application/usecases/ticket/GetTicketsByUserUseCase';
+import { VerifyTicketUseCase } from '../application/usecases/ticket/VerifyTicketUseCaset';
+import { GetLatestTicketUseCase } from '../application/usecases/ticket/GetLatestTicketUseCase';
+import { TicketUseCase } from '../application/usecases/ticket/TicketUseCase';
+import { GetAllTicketsUseCase } from '../application/usecases/ticket/GetAllTicketsUseCase';
+import { RegisterUserUseCase } from '../application/usecases/user/RegisterUserUseCase';
+import { LoginUserUseCase } from '../application/usecases/user/LoginUserUseCase';
+import { GoogleAuthUseCase } from '../application/usecases/user/GoogleAuthUseCase';
+import { VerifyOtpUseCase } from '../application/usecases/user/VerifyOtpUseCase';
+import { ResendOtpUseCase } from '../application/usecases/user/ResendOtpUseCase';
+import { ForgotPasswordUseCase } from '../application/usecases/user/ForgotPasswordUseCase';
+import { ResetPasswordUseCase } from '../application/usecases/user/ResetPasswordUseCase';
+import { GetAllUsersUseCase } from '../application/usecases/user/GetAllUsersUseCase';
+import { ToggleUserStatusUseCase } from '../application/usecases/user/ToggleUserStatusUseCase';
+import { RefreshTokenUseCase } from '../application/usecases/user/RefreshTokenUseCase';
+import { GetUserByIdUseCase } from '../application/usecases/user/GetUserByIdUseCase';
+import { EventController } from '../presentation/controllers/EventController';
+import { TicketController } from '../presentation/controllers/TicketController';
+import { UserController } from '../presentation/controllers/UserController';
+
+const container = new Container();
+
+container.bind<IEventRepository>(TYPES.IEventRepository).to(EventRepository).inSingletonScope();
+container.bind<ITicketRepository>(TYPES.ITicketRepository).to(TicketRepository).inSingletonScope();
+container.bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository).inSingletonScope();
+
+container.bind<CreateEventUseCase>(TYPES.CreateEventUseCase).to(CreateEventUseCase).inSingletonScope();
+container.bind<GetEventsUseCase>(TYPES.GetEventsUseCase).to(GetEventsUseCase).inSingletonScope();
+container.bind<UpdateEventUseCase>(TYPES.UpdateEventUseCase).to(UpdateEventUseCase).inSingletonScope();
+container.bind<DeleteEventUseCase>(TYPES.DeleteEventUseCase).to(DeleteEventUseCase).inSingletonScope();
+container.bind<CreateCheckoutSessionUseCase>(TYPES.CreateCheckoutSessionUseCase).to(CreateCheckoutSessionUseCase).inSingletonScope();
+container.bind<HandleStripeWebhookUseCase>(TYPES.HandleStripeWebhookUseCase).to(HandleStripeWebhookUseCase).inSingletonScope();
+container.bind<GetTicketsByUserUseCase>(TYPES.GetTicketsByUserUseCase).to(GetTicketsByUserUseCase).inSingletonScope();
+container.bind<VerifyTicketUseCase>(TYPES.VerifyTicketUseCase).to(VerifyTicketUseCase).inSingletonScope();
+container.bind<GetLatestTicketUseCase>(TYPES.GetLatestTicketUseCase).to(GetLatestTicketUseCase).inSingletonScope();
+container.bind<TicketUseCase>(TYPES.TicketUseCase).to(TicketUseCase).inSingletonScope();
+container.bind<GetAllTicketsUseCase>(TYPES.GetAllTicketsUseCase).to(GetAllTicketsUseCase).inSingletonScope();
+container.bind<RegisterUserUseCase>(TYPES.RegisterUserUseCase).to(RegisterUserUseCase).inSingletonScope();
+container.bind<LoginUserUseCase>(TYPES.LoginUserUseCase).to(LoginUserUseCase).inSingletonScope();
+container.bind<GoogleAuthUseCase>(TYPES.GoogleAuthUseCase).to(GoogleAuthUseCase).inSingletonScope();
+container.bind<VerifyOtpUseCase>(TYPES.VerifyOtpUseCase).to(VerifyOtpUseCase).inSingletonScope();
+container.bind<ResendOtpUseCase>(TYPES.ResendOtpUseCase).to(ResendOtpUseCase).inSingletonScope();
+container.bind<ForgotPasswordUseCase>(TYPES.ForgotPasswordUseCase).to(ForgotPasswordUseCase).inSingletonScope();
+container.bind<ResetPasswordUseCase>(TYPES.ResetPasswordUseCase).to(ResetPasswordUseCase).inSingletonScope();
+container.bind<GetAllUsersUseCase>(TYPES.GetAllUsersUseCase).to(GetAllUsersUseCase).inSingletonScope();
+container.bind<ToggleUserStatusUseCase>(TYPES.ToggleUserStatusUseCase).to(ToggleUserStatusUseCase).inSingletonScope();
+container.bind<RefreshTokenUseCase>(TYPES.RefreshTokenUseCase).to(RefreshTokenUseCase).inSingletonScope();
+container.bind<GetUserByIdUseCase>(TYPES.GetUserByIdUseCase).to(GetUserByIdUseCase).inSingletonScope();
+
+container.bind<EventController>(TYPES.EventController).to(EventController).inSingletonScope();
+container.bind<TicketController>(TYPES.TicketController).to(TicketController).inSingletonScope();
+container.bind<UserController>(TYPES.UserController).to(UserController).inSingletonScope();
+
+export { container };
