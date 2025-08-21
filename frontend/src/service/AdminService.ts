@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://api.fasilurahman.site/api/users";
 
 export const toggleUserStatusService = async (userId: string) => {
   const response = await axios.patch(`${API_URL}/${userId}/toggle-status`);
