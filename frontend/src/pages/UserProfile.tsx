@@ -192,7 +192,7 @@ const UserProfile = () => {
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/home')}
           className="flex items-center text-indigo-600 hover:text-indigo-800 mb-6 transition-colors duration-200"
         >
           <svg
