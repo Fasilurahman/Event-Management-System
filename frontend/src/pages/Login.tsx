@@ -321,9 +321,10 @@ const Login: React.FC = () => {
                 <div
                   className={`text-center ${styles.animateFadeIn} ${styles.animationDelay700}`}
                 >
-                  <button
+                 <button
                     type="button"
                     className="text-gray-600 hover:text-teal-600 font-medium transition-colors duration-200"
+                    onClick={() => navigate("/register")} // ✅ navigate to /register
                   >
                     Create an account
                   </button>
