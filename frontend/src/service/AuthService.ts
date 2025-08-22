@@ -1,7 +1,6 @@
 import axios from "axios";
 import api from "../api/axiosInstance";
 
-const API_URL = "http://localhost:5000"; 
 
 
 export const registerService = async (formData: {
