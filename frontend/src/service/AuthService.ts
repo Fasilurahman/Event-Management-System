@@ -11,7 +11,7 @@ export const registerService = async (formData: {
   confirmPassword: string;
 }) => {
     console.log("Submitting registration with data:", formData);
-  const response = await api.post(`${API_URL}/api/users/register`, formData);
+  const response = await api.post(`/api/users/register`, formData);
   console.log("Registration response:", response.data);
   return response;
 };
@@ -21,28 +21,28 @@ export const loginService = async (credentials: {
   password: string;
 }) => {
   console.log("Submitting login request with:", credentials);
-  const response = await axios.post(`${API_URL}/api/users/login`, credentials);
+  const response = await api.post(`/api/users/login`, credentials);
   console.log("Login response data:", response.data);
   return response;
 };
 
 export const googleAuthService = async (idToken: string) => {
-  const response = await axios.post(`${API_URL}/api/users/google`, { token: idToken });
+  const response = await api.post(`/api/users/google`, { token: idToken });
   return response;
 };
 
 export const verifyOtpService = async (data: { email: string; otp: string }) => {
-  return axios.post(`${API_URL}/api/users/verify-otp`, data);
+  return api.post(`/api/users/verify-otp`, data);
 };
 
 export const resendOtpService = (data: { email: string }) => {
-  return axios.post(`${API_URL}/api/users/resend-otp`, data);
+  return api.post(`/api/users/resend-otp`, data);
 };
 
 export const forgotPasswordService = async (email: string) => {
   if (!email) throw new Error("Email is required");
 
-  return axios.post(`${API_URL}/api/users/forgot-password`, { email });
+  return api.post(`/api/users/forgot-password`, { email });
 };
 
 export const resetPasswordService = async ({
@@ -52,5 +52,5 @@ export const resetPasswordService = async ({
   token: string;
   password: string;
 }) => {
-  return axios.post(`${API_URL}/api/users/reset-password`, { token, password });
+  return api.post(`/api/users/reset-password`, { token, password });
 };
