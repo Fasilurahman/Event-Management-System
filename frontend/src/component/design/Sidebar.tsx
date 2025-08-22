@@ -20,7 +20,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) {
     { id: 'dashboard', label: 'Dashboard', icon: Home, path: '/admin/dashboard' },
     { id: 'events', label: 'Events', icon: Calendar, path: '/admin/events' },
     { id: 'users', label: 'Users', icon: Users, path: '/admin/users' },
-    { id: 'Tickets', label: 'Subscriptions', icon: CreditCard, path: '/admin/subscriptions' },
+    { id: 'Tickets', label: 'Tickets', icon: CreditCard, path: '/admin/subscriptions' },
   ];
 
   return (
